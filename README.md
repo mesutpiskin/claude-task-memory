@@ -29,6 +29,32 @@ second notification. Callers must deduplicate on event id.
 
 ---
 
+## The loop
+
+```mermaid
+flowchart TD
+    T["Ticket PROJ-406 lands"] --> B["git checkout feature/PROJ-406-state-machine"]
+    B --> H{"SessionStart hook:<br/>is there a record for this id?"}
+    H -->|found| L["Inject the task memory<br/>+ 'historical record' banner"]
+    H -->|not found| S["Score branch name and changed files<br/>against every stored record"]
+    S --> C["Candidate list<br/>/memory-load PROJ-406"]
+    L --> W["Work, with the context already loaded"]
+    C --> W
+    W --> SV["/memory-save"]
+    SV --> A["memory-writer subagent<br/>drafts a record from the diff"]
+    A --> R{"You review it"}
+    R --> TK["tasks/PROJ-406/README.md<br/>body frozen once the PR merges"]
+    R --> DM["domains/billing.md<br/>one appended line, or 'impact: none'"]
+    TK --> MR[("memory repo")]
+    DM --> MR
+    MR -.->|"ten days later: bugfix PROJ-478 — a NEW ticket id"| H
+```
+
+The dotted edge is the whole point. The loop closes on a **different** ticket id than
+the one that opened it, which is why exact-id lookup alone is not enough.
+
+---
+
 ## The part that actually matters
 
 Exact ticket-ID matching solves the easy case and fails the important one. **A bugfix
