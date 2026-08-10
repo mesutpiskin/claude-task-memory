@@ -1,0 +1,21 @@
+{
+  "name": "task-memory",
+  "owner": {
+    "name": "task-memory contributors",
+    "url": "https://github.com/OWNER/claude-task-memory"
+  },
+  "metadata": {
+    "description": "Task-ID based team memory for Claude Code.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "task-memory",
+      "source": ".",
+      "description": "Loads the memory for the ticket in your branch name at session start; suggests related records when a bugfix arrives under a new ticket ID; drafts a new memory when the work is done.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "tags": ["memory", "context", "team", "onboarding"]
+    }
+  ]
+}

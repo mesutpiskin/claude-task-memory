@@ -1,0 +1,7 @@
+# Generated on every session, never committed.
+# Committing it would give the whole team a permanent merge conflict.
+INDEX.md
+
+.DS_Store
+__pycache__/
+*.pyc
