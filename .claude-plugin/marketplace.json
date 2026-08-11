@@ -2,7 +2,7 @@
   "name": "task-memory",
   "owner": {
     "name": "task-memory contributors",
-    "url": "https://github.com/OWNER/claude-task-memory"
+    "url": "https://github.com/mesutpiskin/claude-task-memory"
   },
   "metadata": {
     "description": "Task-ID based team memory for Claude Code.",

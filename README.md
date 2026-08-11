@@ -78,7 +78,7 @@ outlives the task?* If yes, one line is appended to the domain file. If no, you 
 is wiped on every update, so data must not live there.
 
 ```bash
-git clone https://github.com/OWNER/claude-task-memory /tmp/ctm
+git clone https://github.com/mesutpiskin/claude-task-memory /tmp/ctm
 cp -r /tmp/ctm/templates/memory-store ~/task-memory-store
 cd ~/task-memory-store && git init && git add -A && git commit -m "init memory store"
 ```
@@ -93,7 +93,7 @@ export TASK_MEMORY_DIR="$HOME/your/path"
 **2. Install the plugin.** In Claude Code:
 
 ```
-/plugin marketplace add https://github.com/OWNER/claude-task-memory
+/plugin marketplace add https://github.com/mesutpiskin/claude-task-memory
 /plugin install task-memory@task-memory
 ```
 
